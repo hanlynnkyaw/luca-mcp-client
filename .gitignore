@@ -1,0 +1,6 @@
+# Token files are per person and never committed. Only the template is.
+clients/*.env
+!clients/example.env
+
+# Each person's own Claude Code choices for this folder.
+.claude/settings.local.json

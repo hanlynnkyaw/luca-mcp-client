@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "luca": {
+      "type": "http",
+      "url": "${LUCA_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${LUCA_TOKEN}"
+      }
+    }
+  }
+}
