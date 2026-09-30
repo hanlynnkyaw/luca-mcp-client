@@ -17,8 +17,9 @@ happens through its tools. There is no code in this repo to run or test.
   instructions carry the rules (for example, every write needs an
   `idempotency_key` taken from the source document).
 - A write refused with 409 and an `existing_id` means that document is already
-  in Luca from an earlier call. Treat it as done and look it up. Never retry
-  with a new key: that books it twice.
+  in Luca from an earlier call. Treat it as done and never retry with a new
+  key: that books it twice. A 409 with no `existing_id` means the first call
+  is still running; wait, then retry with the same key.
 - Documents post to the ledger the moment they are recorded. Say what you are
   about to record, with amounts and accounts, before you call a write tool.
   Afterwards report the document number and total that Luca returned.
